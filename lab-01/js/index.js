@@ -15,7 +15,7 @@
 */
 
 import { getMovieData } from "./lib/firebase/api";
-import { movieTemplate } from "./templates/movieListItem";
+import { movieTemplate } from "./templates/movieTemplate";
 
 async function appInit() {
   const appData = await getMovieData();
@@ -23,20 +23,17 @@ async function appInit() {
     return movieTemplate(movie);
   });
 
-  const ul = document.createElement("ul");
-  ul.classList.add("divide-y");
-  ul.classList.add("text-center");
+  // <ul class="max-w-xs flex flex-col">
 
-  movieItems.forEach((markup) => {
-    ul.appendChild(markup);
+  const div = document.createElement("div");
+  movieItems.forEach((item) => {
+    item.classList.add("mb-3");
+    div.appendChild(item);
   });
 
-  // customize the app a bit
-  const app = document.querySelector("#app");
-  app.classList.add("mt-5");
-  app.classList.add("flex");
-  app.classList.add("justify-center");
-  app.append(ul);
+  console.log(div);
+
+  document.querySelector("#app").append(div);
 }
 
 appInit();
