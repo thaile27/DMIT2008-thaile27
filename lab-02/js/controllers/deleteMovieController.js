@@ -9,8 +9,8 @@ export function deleteMovieController(movieUid) {
   uid = movieUid;
   dialog = document.querySelector("#delete-movie");
   // TODO: the exit id button is being used in 3 places, need to have unique id name for each button (create, edit, delete)
-  exitButton = document.querySelector("#exit-delete");
-  deleteButton = document.querySelector("#delete-delete");
+  exitButton = dialog.querySelector("#exit");
+  deleteButton = dialog.querySelector("#delete");
 
   // troubleshooting
   console.log(exitButton);
